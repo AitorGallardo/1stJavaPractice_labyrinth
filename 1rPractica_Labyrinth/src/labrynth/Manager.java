@@ -20,7 +20,7 @@ public class Manager {
 
 	public boolean gameLoop(String action) {
 
-		boolean end = element.getFinishEnd();
+		boolean end = false;
 		boolean toPlay = false; // We need to pass by play on menu always before catch any movement
 		
 
@@ -44,12 +44,15 @@ public class Manager {
 		    else {
 		    	if(toPlay==true) {
 		    		labrynth.singleActionLoop(action);
+		    		end = element.getFinishEnd();
 		    		printer.printMap();
 		    	} else {
 		    		menu.startQuit();
 		    	}
 		    }
-		    action=listen.nextAction();
+		    if(end ==false) {
+		    	action=listen.nextAction();
+		    }
 	     }
 	     return end; 
 	    }

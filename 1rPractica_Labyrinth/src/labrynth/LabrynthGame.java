@@ -110,6 +110,9 @@ public class LabrynthGame {
 	            	System.out.println("Has trepitjat una bomba, perds una vida");
 		            int lifes = element.getCharacterLifes();
 		            element.setCharacterLifes(lifes--);
+		            if(lifes == 0) {
+		            	element.setFinishEnd(true);
+		            }
 	           		break;
 	           	case 4:{
 	           		System.out.println("Has trobat la sortida. HAS GUANYAT~!!!");

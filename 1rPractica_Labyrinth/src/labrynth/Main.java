@@ -26,8 +26,14 @@ public class Main {
 		menu.printMenu();
 		labrynth.generateLabrynthElements();
 		printer.printMap();
-		while(manage.gameLoop(listen.nextAction()));	
-		System.out.println("GAME HAS ENDED");
+		while(manage.gameLoop(listen.nextAction())==false);
+		
+		if(element.getCharacterLifes()>0) {
+			System.out.println("ENHORABONA HAS TROBAT LA SORTIDA !!!");
+		} else {
+			System.out.println("GAME OVER, T'HAS QUEDAT SENSE VIDES");
+			}
+		
 	}
 	
 }
