@@ -26,7 +26,7 @@ public class Main {
 		printer.printFullMap();
 		while(manage.gameLoop(listen.nextAction())==false);
 		
-		if(element.getCharacterLifes()>0) {
+		if(element.getCharacterLifes()>0 && manage.outWithQuit==false) {
 			System.out.println("ENHORABONA HAS TROBAT LA SORTIDA !!!");
 		} else {
 			System.out.println("GAME OVER, T'HAS QUEDAT SENSE VIDES");

@@ -10,6 +10,8 @@ public class Manager {
 		Elements element;
 		ShowMap printer;
 		
+		boolean outWithQuit; 
+		
 		public Manager(Elements theelement, LabrynthGame game) {
 			this.element = theelement;
 			this.labrynth = game;
@@ -28,13 +30,16 @@ public class Manager {
 		    
 
 		    if((toPlay==false)&&(action=="PLAY")) {
-		    	printer.printFullMap(); //printer.printInitialMap();  When the game has been completed <------
+		    	printer.printInitialMap(); //printer.printInitialMap();  When the game has been completed <------
 		    	toPlay=true;
 		    }
 		    if(action=="QUIT") {
+		    	outWithQuit=true;
 		    	end=true;
+		    	System.out.println("Has escollit sortir del joc!");
 		    } 
 		    if(action=="CHEAT") {
+		    	System.out.println("Has escollit el mode cheating!");
 		    	printer.printFullMap();
 		    } 
 		    if(action=="MENU") {

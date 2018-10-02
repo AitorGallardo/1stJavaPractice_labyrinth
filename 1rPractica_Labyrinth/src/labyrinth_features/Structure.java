@@ -122,6 +122,7 @@ public class Structure {
 
 
 		while (i<4) {
+		
 		///x block
 			int  nextWallX = rand.nextInt(variableMaxX) + variableMinX;
 					
@@ -146,16 +147,25 @@ public class Structure {
 					}
 
 			if(auxX<1){
-				variableMinX++;
+				if(variableMinX<2){
+					variableMinX++;	
+				}
 			}
 			if(auxX>30){
-				variableMaxX--;
+				if(variableMaxX>2){
+					variableMaxX--;	
+				}	
 			}
 			if(auxY<1){
-				variableMinY++;
+				if(variableMinY<2){
+					variableMinY++;	
+				}
+				
 			}
 			if(auxY>10){
-				variableMaxY--;
+				if(variableMaxY>2){
+					variableMaxY--;
+				}
 			}			
 			else{
 				auxX=generatingWallX;
