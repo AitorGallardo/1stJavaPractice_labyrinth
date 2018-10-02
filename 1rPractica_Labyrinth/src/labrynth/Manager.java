@@ -28,7 +28,7 @@ public class Manager {
 		    
 
 		    if((toPlay==false)&&(action=="PLAY")) {
-		    	printer.printFullMap();
+		    	printer.printFullMap(); //printer.printInitialMap();  When the game has been completed <------
 		    	toPlay=true;
 		    }
 		    if(action=="QUIT") {
@@ -42,12 +42,15 @@ public class Manager {
 		    	toPlay=false;
 		    }
 		    else {
-		    	if(toPlay==true) {
-		    		labrynth.singleActionLoop(action);
-		    		end = element.getFinishEnd();
-		    		printer.printMapStepbyStep();
-		    	} else {
-		    		menu.startQuit();
+		    	if(action!="CHEAT") { 
+			    	
+		    		if(toPlay==true) {
+			    		labrynth.singleActionLoop(action);
+			    		end = element.getFinishEnd();
+			    		printer.printMapStepbyStep();
+			    	} else {
+			    		menu.startQuit();
+			    	}
 		    	}
 		    }
 		    if(end ==false) {
