@@ -11,6 +11,7 @@ public class Elements {
 
 
 	public int [][] labyrinth = new int[MAX_WIDTH+2][MAX_HEIGHT+2];
+	public int [][] discoveredWalls = new int[MAX_WIDTH+2][MAX_HEIGHT+2];
 	
 	private int x;
 	private int y;

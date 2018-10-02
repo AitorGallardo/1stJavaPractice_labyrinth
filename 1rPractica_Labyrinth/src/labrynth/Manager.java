@@ -45,7 +45,7 @@ public class Manager {
 		    	if(toPlay==true) {
 		    		labrynth.singleActionLoop(action);
 		    		end = element.getFinishEnd();
-		    		printer.printFullMap();
+		    		printer.printMapStepbyStep();
 		    	} else {
 		    		menu.startQuit();
 		    	}
