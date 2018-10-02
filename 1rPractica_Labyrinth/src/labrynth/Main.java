@@ -21,11 +21,9 @@ public class Main {
 	
 	private void start() {
 
-	    // labrynth.generateLabrynthElements();
-		// printer.printMap();
 		menu.printMenu();
 		labrynth.generateLabrynthElements();
-		printer.printMap();
+		printer.printFullMap();
 		while(manage.gameLoop(listen.nextAction())==false);
 		
 		if(element.getCharacterLifes()>0) {

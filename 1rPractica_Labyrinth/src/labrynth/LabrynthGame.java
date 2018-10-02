@@ -69,8 +69,14 @@ public class LabrynthGame {
 		x = element.getCharacterX();
 		y = element.getCharacterY();
 		
-		if((element.labyrinth[x][y] == element.getWall())||(x < 0)||(x > element.getMaxWidth())||(y < 0)||(y > element.getMaxHeight())){
+		if(element.getCharacterBonus()==true) {
+			return true;
+		}
+		else if((element.labyrinth[x][y] == element.getWall())||(x < 0)||(x > element.getMaxWidth())||(y < 0)||(y > element.getMaxHeight())){
 			System.out.println("HAY MURO, SE HAN SETEADO EL CHARACTER A LAST CHARACTER");// podria retornar el mensaje: 'error HAY UN MURO!!!'
+			element.discoveredWalls[x][y] = element.getWall();
+			// element.setX(x);
+			// element.setY(y);
 			element.setCharacterX(element.getCharacterLastX());
 			element.setCharacterY(element.getCharacterLastY());
 			return false;
@@ -96,6 +102,7 @@ public class LabrynthGame {
 
 		int newX = element.getCharacterX();
 		int newY= element.getCharacterY();
+		int lifes = element.getCharacterLifes();
 
 			switch(element.labyrinth[newX][newY]) { 
 
@@ -108,8 +115,10 @@ public class LabrynthGame {
 	            	break;
 	            case 3:
 	            	System.out.println("Has trepitjat una bomba, perds una vida");
-		            int lifes = element.getCharacterLifes();
-		            element.setCharacterLifes(lifes--);
+		            
+		            element.setCharacterLifes(lifes-1);
+		            lifes  = element.getCharacterLifes();
+		            System.out.println("Tens "+lifes+" vides");
 		            if(lifes == 0) {
 		            	element.setFinishEnd(true);
 		            }
