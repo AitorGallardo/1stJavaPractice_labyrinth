@@ -28,7 +28,7 @@ public class Manager {
 		    
 
 		    if((toPlay==false)&&(action=="PLAY")) {
-		    	printer.printMap();
+		    	printer.printFullMap();
 		    	toPlay=true;
 		    }
 		    if(action=="QUIT") {
@@ -45,7 +45,7 @@ public class Manager {
 		    	if(toPlay==true) {
 		    		labrynth.singleActionLoop(action);
 		    		end = element.getFinishEnd();
-		    		printer.printMap();
+		    		printer.printFullMap();
 		    	} else {
 		    		menu.startQuit();
 		    	}
