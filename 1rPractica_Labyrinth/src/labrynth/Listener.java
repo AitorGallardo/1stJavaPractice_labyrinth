@@ -6,9 +6,9 @@ import java.util.Scanner;
 public class Listener {
 
     String error = "\n\nMoviment: \na dalt:'W'\na baix:'S'\nesquerra:'A'\ndreta:'D'\n\nMenu: 'M'\n\nJugar: 'P'\n\nSortir: 'Q'";
-	String[] keys = {"w","W","s","S","a","A","d","D","p","P","q","Q","c","C","m","M"};
-	private ArrayList<String[]> tracker = new ArrayList<String[]>(); //Undefined flexible Array, it uses add() to pass parameters as String[]
-	String[] test = {};// thats why i create this auxiliar String array, it will patch string to string array and then pass it to flex array
+	String[] keys = {"w","W","s","S","a","A","d","D","p","P","q","Q","c","C","m","M","t","T"};
+	private ArrayList<String[]> trackerArray = new ArrayList<String[]>(); //Undefined flexible Array, it uses add() to pass parameters as String[]
+	String[] test = new String[1];// thats why i create this auxiliar String array, it will patch string to string array and then pass it to flex array
 	private String up = "UP";
 	private String down = "DOWN";
 	private String left = "LEFT";
@@ -17,6 +17,7 @@ public class Listener {
 	private String quit = "QUIT";
 	private String cheat = "CHEAT";
 	private String menu = "MENU";
+	private String tracker = "TRACKER";
 	
 	
 	
@@ -59,6 +60,9 @@ public class Listener {
 		     			if((i>=14) && (i<=15)) {
 		     				keyWord = menu;
 		     			}
+		     			if((i>=16) && (i<=17)) {
+		     				keyWord = tracker;
+		     			}
 		     		}
 		     	}
 		     if(out==false) {
@@ -71,9 +75,20 @@ public class Listener {
 		}
 	     if(keyWord == up || keyWord == down || keyWord == left || keyWord == right) {
 	    	 this.test[0]= keyWord; 
-	    	 this.tracker.add(test); 	 
+	    	 this.trackerArray.add(test); 
+	    
 	     }
-	     // log.close();
+	      // log.close();
 		return keyWord;
 	}
+
+
+
+
+
+	public ArrayList<String[]> getTrackerArray() {
+		return trackerArray;
+	}
+	 
+	 
 }

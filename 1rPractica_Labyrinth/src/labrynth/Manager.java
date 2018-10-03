@@ -1,5 +1,7 @@
 package labrynth;
 
+import java.util.Arrays;
+
 import labyrinth_features.Elements;
 
 public class Manager {
@@ -45,6 +47,12 @@ public class Manager {
 		    if(action=="MENU") {
 		    	menu.printMenu();
 		    	toPlay=false;
+		    }
+		    if(action=="TRACKER") {
+		    	
+		    	System.out.println("Els teus moviments son "+ Arrays.deepToString(listen.getTrackerArray().toArray()));
+		    	System.out.println("Els teus moviments son "+ (listen.getTrackerArray().iterator().toString()));
+		    	
 		    }
 		    else {
 		    	if(action!="CHEAT") { 
