@@ -9,9 +9,9 @@ public class Listener {
 
 	
     String error = "\n\nMoviment: \na dalt:'W'\na baix:'S'\nesquerra:'A'\ndreta:'D'\n\nMenu: 'M'\n\nJugar: 'P'\n\nSortir: 'Q'";
-	String[] keys = {"w","W","s","S","a","A","d","D","p","P","q","Q","c","C","m","M","t","T"};
-	private ArrayList<String> trackerArray = new ArrayList<String>(); //Undefined flexible Array, it uses add() to pass parameters as String[]
-	String[] test = new String[1];// thats why i create this auxiliar String array, it will patch string to string array and then pass it to flex array
+	String[] inGameKeys = {"w","W","s","S","a","A","d","D","p","P","q","Q","c","C","m","M","t","T"};
+	String[] outGameKeys = {"y","Y","n","N"};
+	private ArrayList<String> trackerArray = new ArrayList<String>(); //Undefined flexible Array of Strings, it uses add() to pass parameters as String
 	private String up = "UP";
 	private String down = "DOWN";
 	private String left = "LEFT";
@@ -25,7 +25,35 @@ public class Listener {
 	
 	
 	
-    
+    public boolean tryAgain() {
+    	
+    	 boolean outOfLoop = false;
+		 boolean keepPlaying = false;
+	     char command = 0;
+	     Scanner log = new Scanner(System.in);
+	     System.out.println("\n\n>>>>> TRY AGAIN ? (Y/N)");
+	     
+	     while(outOfLoop==false){
+	    	 command=log.next().charAt(0);
+	    	 for(int i =0 ; i < outGameKeys.length; i++){
+		     		if(outGameKeys[i].charAt(0)==command){// keys[i].equals(command)
+		     			outOfLoop=true;
+		     			
+		     			if((i>=0) && (i<=1)) {
+		     				keepPlaying = true;
+		     			}
+		     			if((i>=2) && (i<=3)) {
+		     				keepPlaying = false;
+		     			}
+		     		}
+	    	 }
+	    	 if(outOfLoop==false) {
+	    		 System.out.println("\nWrong Keys. \nKEEP PLAYING: PRESS - Y - \nEND GAME: PRESS - N -");
+  			}
+	    	 
+	     }
+	     return keepPlaying;
+    }
 	 public String nextAction() {
 	     
 		 boolean out = false;
@@ -36,8 +64,8 @@ public class Listener {
 	     while(out==false){
 	    	 command=log.next().charAt(0);
 	     	 // System.out.println(command);
-		     for(int i =0 ; i < keys.length; i++){
-		     		if(keys[i].charAt(0)==command){// keys[i].equals(command)
+		     for(int i =0 ; i < inGameKeys.length; i++){
+		     		if(inGameKeys[i].charAt(0)==command){// keys[i].equals(command)
 		     			out=true;
 		     			if((i>=0) && (i<=1)) {
 		     				keyWord = up;
@@ -68,18 +96,9 @@ public class Listener {
 		     			}
 		     		}
 		     	}
-		     if(out==false) {
-	     			// System.out.println(error);
-	     			// System.out.println("keyWord"+keyWord);
-	     			// log.next();
-	     			
-		     }
-		     
 		}
 	     if(keyWord == up || keyWord == down || keyWord == left || keyWord == right) {
-	    	 this.test[0]= keyWord; 
 	    	 this.trackerArray.add(keyWord); 
-	    
 	     }
 	      // log.close();
 		return keyWord;
