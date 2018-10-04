@@ -3,8 +3,11 @@ package labrynth;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class Listener {
 
+
+	
     String error = "\n\nMoviment: \na dalt:'W'\na baix:'S'\nesquerra:'A'\ndreta:'D'\n\nMenu: 'M'\n\nJugar: 'P'\n\nSortir: 'Q'";
 	String[] keys = {"w","W","s","S","a","A","d","D","p","P","q","Q","c","C","m","M","t","T"};
 	private ArrayList<String> trackerArray = new ArrayList<String>(); //Undefined flexible Array, it uses add() to pass parameters as String[]

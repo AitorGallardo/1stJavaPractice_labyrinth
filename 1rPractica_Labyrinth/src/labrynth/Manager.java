@@ -29,50 +29,49 @@ public class Manager {
 		
 
 		while(end==false) {
-		    
 
-		    if((toPlay==false)&&(action=="PLAY")) {
-		    	printer.printInitialMap(); //printer.printInitialMap();  When the game has been completed <------
-		    	toPlay=true;
-		    }
-		    if(action=="QUIT") {
-		    	outWithQuit=true;
-		    	end=true;
-		    	System.out.println("Has escollit sortir del joc!");
-		    	System.out.println("END??? "+ end);
-		    	
-		    } 
-		    if(action=="CHEAT") {
-		    	System.out.println("Has escollit el mode cheating!");
-		    	printer.printFullMap();
-		    } 
-		    if(action=="MENU") {
-		    	menu.printMenu();
-		    	toPlay=false;
-		    }
-		    if(action=="TRACKER") {
-		    	
-		    	System.out.println("Els teus moviments son "+  listen.getTrackerArray().toString());//Arrays.deepToString(listen.getTrackerArray().toArray()));
-		    	// System.out.println("Els teus moviments son "+ (listen.getTrackerArray().iterator().toString()));
-		    	
-		    }
-		    else {
-		    	if(action!="CHEAT") { 
-			    	
+
+			switch(action) { 
+
+		        case "PLAY":
+		        	printer.printInitialMap(); //printer.printInitialMap();  When the game has been completed <------
+		        	toPlay=true;
+		            break;
+	            case "QUIT":
+			    	outWithQuit=true;
+			    	end=true;
+			    	System.out.println("Has escollit sortir del joc!");
+			    	System.out.println("END??? "+ end);	            
+	            	break;
+	            case "CHEAT":
+		    		System.out.println("Has escollit el mode cheating!");
+		    		printer.printFullMap();	            
+	           		break;
+	           	case "MENU":
+		    		menu.printMenu();
+		    		toPlay=false;	           	
+	           		break;
+	           	case "TRACKER":
+					System.out.println("Els teus moviments son "+  listen.getTrackerArray().toString());	           	
+	           		break;
+	           	default:{
+
 		    		if(toPlay==true) {
 			    		labrynth.singleActionLoop(action);
 			    		end = element.getFinishEnd();
 			    		printer.printMapStepbyStep();
 			    	} else {
 			    		menu.startQuit();
-			    	}
-		    	}
-		    }
-		    if(end ==false) {
+			    		}	           		
+
+	           		break;  
+	           	}	          	         			           			
+	        }
+	        if(end ==false) {
 		    	action=listen.nextAction();
-		    }
-	     }
-	     return end; 
+		    }   
+	    }
+	    return end;
 	    }
 	     
 	}
