@@ -39,6 +39,8 @@ public class Manager {
 		    	outWithQuit=true;
 		    	end=true;
 		    	System.out.println("Has escollit sortir del joc!");
+		    	System.out.println("END??? "+ end);
+		    	
 		    } 
 		    if(action=="CHEAT") {
 		    	System.out.println("Has escollit el mode cheating!");

@@ -24,7 +24,7 @@ public class Main {
 		menu.printMenu();
 		labrynth.generateLabrynthElements();
 		printer.printFullMap();
-		while(manage.gameLoop(listen.nextAction())==false);
+		manage.gameLoop(listen.nextAction());
 		
 		if(element.getCharacterLifes()>0 && manage.outWithQuit==false) {
 			System.out.println("ENHORABONA HAS TROBAT LA SORTIDA !!!");
