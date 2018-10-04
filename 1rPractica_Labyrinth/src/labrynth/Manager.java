@@ -50,8 +50,8 @@ public class Manager {
 		    }
 		    if(action=="TRACKER") {
 		    	
-		    	System.out.println("Els teus moviments son "+ Arrays.deepToString(listen.getTrackerArray().toArray()));
-		    	System.out.println("Els teus moviments son "+ (listen.getTrackerArray().iterator().toString()));
+		    	System.out.println("Els teus moviments son "+  listen.getTrackerArray().toString());//Arrays.deepToString(listen.getTrackerArray().toArray()));
+		    	// System.out.println("Els teus moviments son "+ (listen.getTrackerArray().iterator().toString()));
 		    	
 		    }
 		    else {

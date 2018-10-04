@@ -7,7 +7,7 @@ public class Listener {
 
     String error = "\n\nMoviment: \na dalt:'W'\na baix:'S'\nesquerra:'A'\ndreta:'D'\n\nMenu: 'M'\n\nJugar: 'P'\n\nSortir: 'Q'";
 	String[] keys = {"w","W","s","S","a","A","d","D","p","P","q","Q","c","C","m","M","t","T"};
-	private ArrayList<String[]> trackerArray = new ArrayList<String[]>(); //Undefined flexible Array, it uses add() to pass parameters as String[]
+	private ArrayList<String> trackerArray = new ArrayList<String>(); //Undefined flexible Array, it uses add() to pass parameters as String[]
 	String[] test = new String[1];// thats why i create this auxiliar String array, it will patch string to string array and then pass it to flex array
 	private String up = "UP";
 	private String down = "DOWN";
@@ -75,7 +75,7 @@ public class Listener {
 		}
 	     if(keyWord == up || keyWord == down || keyWord == left || keyWord == right) {
 	    	 this.test[0]= keyWord; 
-	    	 this.trackerArray.add(test); 
+	    	 this.trackerArray.add(keyWord); 
 	    
 	     }
 	      // log.close();
@@ -86,7 +86,7 @@ public class Listener {
 
 
 
-	public ArrayList<String[]> getTrackerArray() {
+	public ArrayList<String> getTrackerArray() {
 		return trackerArray;
 	}
 	 
