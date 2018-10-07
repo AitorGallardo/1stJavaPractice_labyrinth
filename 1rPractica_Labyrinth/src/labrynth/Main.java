@@ -6,8 +6,6 @@ import labyrinth_features.Elements;
 
 public class Main {
 	
-
-	// Structure structure = new Structure(element);
 	Menu menu = new Menu();
 	Listener listen = new Listener();
 
@@ -21,8 +19,6 @@ public class Main {
 		
 		boolean keepPlaying=true;
 		
-		menu.printMenu();
-		
 		while(keepPlaying){
 			
 			Elements element = new Elements();
@@ -30,15 +26,16 @@ public class Main {
 			ShowMap printer = new ShowMap(element);
 			Manager manage = new Manager(element, labrynth);
 			
+			menu.printMenu();
 			labrynth.generateLabrynthElements();
-			// printer.printFullMap();
 			manage.gameLoop(listen.nextAction());
 			
-			if(element.getCharacterLifes()>0) {
-				System.out.println("\\n\\nENHORABONA HAS TROBAT LA SORTIDA !!!");
+			if(element.getCharacterLifes()>0 && manage.outWithQuit==false) {
+				System.out.println("\n\nENHORABONA HAS TROBAT LA SORTIDA !!!");
 				keepPlaying = listen.tryAgain();
 			} else if (manage.outWithQuit==true){
-				System.out.println("\\n\\nHAS SORTIT DEL JOC");
+				System.out.println("\n\nHAS SORTIT DEL JOC");
+				keepPlaying = false;
 				} else if (manage.outWithQuit==false&&element.getCharacterLifes()<1){
 					System.out.println("\n\nGAME OVER, T'HAS QUEDAT SENSE VIDES");
 					keepPlaying = listen.tryAgain();

@@ -9,7 +9,7 @@ public class Menu {
 		System.out.println("  --GUANYAS: Trobes la Sortida");
 		System.out.println("  --PERDS: Perds les 5 vides");
 		System.out.println("");
-		System.out.println("\n\nControls: \na dalt:'W'\na baix:'S'\nesquerra:'A'\ndreta:'D'");
+		System.out.println("\n\nControls: \na dalt:'W'\na baix:'S'\nesquerra:'A'\ndreta:'D'\n??'C'??");
 
 		System.out.println("\n\nPRESS:  (PLAY) = 'P'            (QUIT) = 'Q'");
 	}

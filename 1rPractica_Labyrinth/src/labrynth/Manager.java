@@ -40,8 +40,7 @@ public class Manager {
 	            case "QUIT":
 			    	outWithQuit=true;
 			    	end=true;
-			    	System.out.println("Has escollit sortir del joc!");
-			    	System.out.println("END??? "+ end);	            
+			    	System.out.println("Has escollit sortir del joc!");	            
 	            	break;
 	            case "CHEAT":
 		    		System.out.println("Has escollit el mode cheating!");
