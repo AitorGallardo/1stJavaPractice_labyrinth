@@ -22,14 +22,29 @@ public class Structure {
 	public void generateRandomStart(){
 		
 		boolean out=false;
+		int x,y,xplus,xminus,yplus,yminus;
 		while(out==false){
 			
-			element.setCharacterX(rand.nextInt(30) + 1);// = rand.nextInt(30) + 1;
-			element.setCharacterY(rand.nextInt(10) + 1);
+			x= rand.nextInt(30) + 1;
+			xplus = x + 1;
+			xminus = x - 1;
+			y= rand.nextInt(10) + 1;
+			yplus= y + 1;
+			yminus= y - 1;
 			
-			if(element.labyrinth[element.getCharacterX()][element.getCharacterY()]==element.getPath()){
-				element.labyrinth[element.getCharacterX()][element.getCharacterY()] = element.getCharacter();
-				out=true;
+			// element.setCharacterX(rand.nextInt(30) + 1);// = rand.nextInt(30) + 1;
+			// element.setCharacterY(rand.nextInt(10) + 1);
+			
+			if(element.labyrinth[x][y]==element.getPath()
+				&&element.labyrinth[xplus][y]!=element.getWall()
+				&&element.labyrinth[xminus][y]!=element.getWall()
+				&&element.labyrinth[x][yplus]!=element.getWall()
+				&&element.labyrinth[x][yminus]!=element.getWall()) {
+					
+					element.setCharacterX(x);
+					element.setCharacterY(y);
+					element.labyrinth[element.getCharacterX()][element.getCharacterY()] = element.getCharacter();
+					out=true;
 			}
 		}
 	}
@@ -82,14 +97,25 @@ public class Structure {
 	public void generateRandomEnd(){
 		
 		boolean out=false;
+		int x,y,xplus,xminus,yplus,yminus;
 		while(out==false){
 			
-			element.setX(rand.nextInt(30) + 1);
-			element.setY(rand.nextInt(10) + 1);
+			x= rand.nextInt(30) + 1;
+			xplus = x + 1;
+			xminus = x - 1;
+			y= rand.nextInt(10) + 1;
+			yplus= y + 1;
+			yminus= y - 1;
+;
 			
-			if(element.labyrinth[element.getX()][element.getY()]==0){
-				element.labyrinth[element.getX()][element.getY()] = element.getEnd();
-				out=true;
+			if(element.labyrinth[x][y]==element.getPath()
+					&&element.labyrinth[xplus][y]!=element.getWall()
+					&&element.labyrinth[xminus][y]!=element.getWall()
+					&&element.labyrinth[x][yplus]!=element.getWall()
+					&&element.labyrinth[x][yminus]!=element.getWall()){
+				
+						element.labyrinth[x][y] = element.getEnd();
+						out=true;
 			}
 		}
 	}
@@ -122,6 +148,7 @@ public class Structure {
 
 
 		while (i<4) {
+		
 		///x block
 			int  nextWallX = rand.nextInt(variableMaxX) + variableMinX;
 					
@@ -146,16 +173,25 @@ public class Structure {
 					}
 
 			if(auxX<1){
-				variableMinX++;
+				if(variableMinX<2){
+					variableMinX++;	
+				}
 			}
 			if(auxX>30){
-				variableMaxX--;
+				if(variableMaxX>2){
+					variableMaxX--;	
+				}	
 			}
 			if(auxY<1){
-				variableMinY++;
+				if(variableMinY<2){
+					variableMinY++;	
+				}
+				
 			}
 			if(auxY>10){
-				variableMaxY--;
+				if(variableMaxY>2){
+					variableMaxY--;
+				}
 			}			
 			else{
 				auxX=generatingWallX;

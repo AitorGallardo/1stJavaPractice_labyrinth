@@ -69,11 +69,11 @@ public class LabrynthGame {
 		x = element.getCharacterX();
 		y = element.getCharacterY();
 		
-		if(element.getCharacterBonus()==true) {
+		if((element.getCharacterBonus()==true)&&((x >= 1)&&(x <= element.getMaxWidth())&&(y >= 1)&&(y <= element.getMaxHeight()))) {
 			return true;
 		}
-		else if((element.labyrinth[x][y] == element.getWall())||(x < 0)||(x > element.getMaxWidth())||(y < 0)||(y > element.getMaxHeight())){
-			System.out.println("HAY MURO, SE HAN SETEADO EL CHARACTER A LAST CHARACTER");// podria retornar el mensaje: 'error HAY UN MURO!!!'
+		else if((element.labyrinth[x][y] == element.getWall())||(x < 1)||(x > element.getMaxWidth())||(y < 1)||(y > element.getMaxHeight())){
+			System.out.println("HI HA UN MUR, NO POTS PASAR");
 			element.discoveredWalls[x][y] = element.getWall();
 			// element.setX(x);
 			// element.setY(y);
@@ -93,7 +93,7 @@ public class LabrynthGame {
 			this.checkCharacterState();
 			element.labyrinth[element.getCharacterLastX()][element.getCharacterLastY()]=element.getPath();
 			element.labyrinth[element.getCharacterX()][element.getCharacterY()]=element.getCharacter();
-			System.out.println("character x ="+element.getCharacterX()+"  character y = "+element.getCharacterY() );
+			System.out.println("character x ="+element.getCharacterX()+"  character y = "+element.getCharacterY()+ " BONUS MODE "+element.getCharacterBonus() );
 			
 		}
 	}	

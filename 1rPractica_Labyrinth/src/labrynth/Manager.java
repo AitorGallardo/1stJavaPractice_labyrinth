@@ -1,5 +1,7 @@
 package labrynth;
 
+import java.util.Arrays;
+
 import labyrinth_features.Elements;
 
 public class Manager {
@@ -9,6 +11,8 @@ public class Manager {
 		LabrynthGame labrynth;
 		Elements element;
 		ShowMap printer;
+		
+		boolean outWithQuit; 
 		
 		public Manager(Elements theelement, LabrynthGame game) {
 			this.element = theelement;
@@ -25,36 +29,48 @@ public class Manager {
 		
 
 		while(end==false) {
-		    
 
-		    if((toPlay==false)&&(action=="PLAY")) {
-		    	printer.printFullMap();
-		    	toPlay=true;
-		    }
-		    if(action=="QUIT") {
-		    	end=true;
-		    } 
-		    if(action=="CHEAT") {
-		    	printer.printFullMap();
-		    } 
-		    if(action=="MENU") {
-		    	menu.printMenu();
-		    	toPlay=false;
-		    }
-		    else {
-		    	if(toPlay==true) {
-		    		labrynth.singleActionLoop(action);
-		    		end = element.getFinishEnd();
-		    		printer.printMapStepbyStep();
-		    	} else {
-		    		menu.startQuit();
-		    	}
-		    }
-		    if(end ==false) {
+
+			switch(action) { 
+
+		        case "PLAY":
+		        	printer.printInitialMap(); //printer.printInitialMap();  When the game has been completed <------
+		        	toPlay=true;
+		            break;
+	            case "QUIT":
+			    	outWithQuit=true;
+			    	end=true;
+			    	System.out.println("Has escollit sortir del joc!");	            
+	            	break;
+	            case "CHEAT":
+		    		System.out.println("Has escollit el mode cheating!");
+		    		printer.printFullMap();	            
+	           		break;
+	           	case "MENU":
+		    		menu.printMenu();
+		    		toPlay=false;	           	
+	           		break;
+	           	case "TRACKER":
+					System.out.println("Els teus moviments son "+  listen.getTrackerArray().toString());	           	
+	           		break;
+	           	default:{
+
+		    		if(toPlay==true) {
+			    		labrynth.singleActionLoop(action);
+			    		end = element.getFinishEnd();
+			    		printer.printMapStepbyStep();
+			    	} else {
+			    		menu.startQuit();
+			    		}	           		
+
+	           		break;  
+	           	}	          	         			           			
+	        }
+	        if(end ==false) {
 		    	action=listen.nextAction();
-		    }
-	     }
-	     return end; 
+		    }   
+	    }
+	    return end;
 	    }
 	     
 	}
