@@ -73,7 +73,7 @@ public class LabrynthGame {
 			return true;
 		}
 		else if((element.labyrinth[x][y] == element.getWall())||(x < 1)||(x > element.getMaxWidth())||(y < 1)||(y > element.getMaxHeight())){
-			System.out.println("HAY MURO, SE HAN SETEADO EL CHARACTER A LAST CHARACTER");// podria retornar el mensaje: 'error HAY UN MURO!!!'
+			System.out.println("HI HA UN MUR, NO POTS PASAR");
 			element.discoveredWalls[x][y] = element.getWall();
 			// element.setX(x);
 			// element.setY(y);

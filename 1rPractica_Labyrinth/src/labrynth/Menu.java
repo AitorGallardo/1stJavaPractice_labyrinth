@@ -1,7 +1,7 @@
 package labrynth;
 
 public class Menu {
-	//acabar menu
+	
 	public void printMenu(){
 		System.out.println("JOC DEL LABERINT\n");
 		System.out.println("  Tens 5 vides. Cada cop que trobis una bomba perdras una vida");
@@ -11,10 +11,10 @@ public class Menu {
 		System.out.println("");
 		System.out.println("\n\nControls: \na dalt:'W'\na baix:'S'\nesquerra:'A'\ndreta:'D'");
 
-		System.out.println("\n\nPRESS:  (PLAY) = 'P'            (QUIT) = 'Q");
+		System.out.println("\n\nPRESS:  (PLAY) = 'P'            (QUIT) = 'Q'");
 	}
 	public void startQuit() {
-		System.out.println("\n\nPRESS:  (PLAY) = 'P'            (QUIT) = 'Q");
+		System.out.println("\n\nPRESS:  (PLAY) = 'P'            (QUIT) = 'Q'");
 	}
 
 }
